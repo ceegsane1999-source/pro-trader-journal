@@ -353,7 +353,7 @@ svg.spark{width:100%;height:60px;overflow:visible}
   </div>
   <div class="grid2">
     <div class="field"><label>Pair</label>
-      <select id="t-pair"><option>EURUSD</option><option>GBPUSD</option><option>USDJPY</option><option>USDCHF</option><option>AUDNZD</option><option>XAUUSD</option></select>
+      <select id="t-pair"><option>EURUSD</option><option>USDCAD</option><option>USDCHF</option><option>USDJPY</option><option>GBPUSD</option><option>AUDUSD</option><option>XAUUSD</option></select>
     </div>
     <div class="field"><label>Direction</label>
       <select id="t-dir"><option value="LONG">LONG</option><option value="SHORT">SHORT</option></select>
@@ -370,7 +370,7 @@ svg.spark{width:100%;height:60px;overflow:visible}
   </div>
   <div class="field"><label>Strategy / Setup</label>
     <select id="t-strat">
-      <option>OB + FVG Confluence</option><option>Liquidity Sweep + OB</option><option>BOS + Retest</option><option>CHOCH Entry</option><option>SSL/BSL Raid</option><option>Discount OB</option><option>Premium OB</option>
+      <option>Scenario 1</option><option>Scenario 2</option><option>Scenario 3</option><option>Scenario 4</option>
     </select>
   </div>
   <div class="field"><label>DXY Bias at Entry</label>
@@ -740,7 +740,7 @@ function updateDash(){
     <td class="${t.pnl>=0?'green':'red'}" style="font-weight:600">${fmt(t.pnl)}</td>
     <td style="color:var(--muted);font-size:10px">${fmtD(t.closeDate)}</td>
   </tr>`).join('')||'<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:12px">No trades yet</td></tr>';
-  const pairs=['EURUSD','GBPUSD','USDJPY','USDCHF','AUDNZD','XAUUSD'];
+  const pairs=['EURUSD','USDCAD','USDCHF','USDJPY','GBPUSD','AUDUSD','XAUUSD'];
   document.getElementById('pair-breakdown').innerHTML=pairs.map(p=>{
     const pt=closed.filter(t=>t.pair===p);
     const ppnl=pt.reduce((a,t)=>a+t.pnl,0);
